@@ -12,10 +12,9 @@
 |Day 5| Final Touches and Present | Incomplete
 
 ## Project Description
+This project showcases a travel diary of an author who displays his/her travel experiences. The blog author has access to all his/her blogs and can create and update blogs in the navigation bar. The homepage will display the most current blog the author created.
 
-The project will center on a blog for one author. The blog author can create new blogs and update existing blogs. The homepage will display the most current blog, while users can access all the blogs in the navigation bar.
-
-The project will be using MongoDB Atlas and Mongoose to store data in database and Heroku for server application. The project will be hosted on Netlify platform. jQuery will be used on the to render the data on HTML page.
+To render the data from the travel journal API I built on the back-end, jQuery is utilized to work in conjuntion with the API to create a friendly one-user blog. The project is hosted on Netlify platform, and can be viewed [here](https://klee-ga-project02.netlify.app/).
 
 ## Google Sheet
 
