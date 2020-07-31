@@ -23,14 +23,14 @@ The project will be using MongoDB Atlas and Mongoose to store data in database a
 
 ## Wireframes
 
-- [Mobile](https://res.cloudinary.com/dhiwn0i0g/image/upload/v1596167661/IMG_0103_caylvc.png)
-- [Tablet](https://res.cloudinary.com/dhiwn0i0g/image/upload/v1596167642/IMG_0102_ywkjlz.png)
-- [Desktop](https://res.cloudinary.com/dhiwn0i0g/image/upload/v1596167642/IMG_0102_ywkjlz.png)
+- [Mobile](https://res.cloudinary.com/dhiwn0i0g/image/upload/v1596169417/IMG_0103_eukewy.png)
+- [Tablet](https://res.cloudinary.com/dhiwn0i0g/image/upload/v1596169416/IMG_0102_oxoxnb.png)
+- [Desktop](https://res.cloudinary.com/dhiwn0i0g/image/upload/v1596169416/IMG_0102_oxoxnb.png)
 
 
 ## Time/Priority Matrix 
 
-[Time Matrix](https://res.cloudinary.com/dhiwn0i0g/image/upload/v1596167661/IMG_0105_xhr5dh.png) 
+[Time Matrix](https://res.cloudinary.com/dhiwn0i0g/image/upload/v1596169416/IMG_0106_bant2d.png) 
 
 ### MVP/PostMVP - 5min 
 
@@ -75,7 +75,6 @@ The project will be using MongoDB Atlas and Mongoose to store data in database a
 | Login Function | M | 3hr | -hr | -hr|
 | Animation effects| M | 4hr | -hr | -hr|
 | Bootstrap | H | 10hr | -hr | -hr|
-
 | Total | H | 17hrs| -hrs | -hrs |
 
 ## Additional Libraries
