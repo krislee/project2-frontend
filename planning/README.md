@@ -19,7 +19,7 @@ The project will be using MongoDB Atlas and Mongoose to store data in database a
 
 ## Google Sheet
 
-[Google Sheet](https://docs.google.com/spreadsheets/d/1V1M3Eq1NXH2PNmeTlVviRhEjX9kenq769Vo2P5mMtro/edit#gid=551282317) 
+[Google Sheet](https://docs.google.com/spreadsheets/d/1DRhpnHYU-LVnRYKSALXm_xbMCZ3FsTs6Zl-VJ1MU49E/edit#gid=0) 
 
 ## Wireframes
 
