@@ -1,4 +1,5 @@
-const deployedURL = "https://ga-project02.herokuapp.com"
+// const deployedURL = "https://ga-project02.herokuapp.com"
+const deployedURL = null
 const URL = deployedURL ? deployedURL : "http://localhost:3000"
 
 
@@ -8,9 +9,11 @@ const getAll = async () => {
     const response = await fetch(`${URL}/travel`) /*Fetch data from database, the data will be returned as a promise
     If the fetch was successful, then the promise is resolved. The value of the resolved promise (which is the data) 
     will be stored in response */
-    console.log(response)
     const data = await response.json()
     console.log(data)
+    data.forEach((blog) => {
+        const parentDiv = $('<div>').attr('id', blog._id)
+    })
 }
 
 getAll()
