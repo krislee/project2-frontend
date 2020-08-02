@@ -4,22 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Travel Diary</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-        <!-- Compiled and minified CSS -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-        <!-- Compiled and minified JavaScript -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script
-  src="https://code.jquery.com/jquery-3.5.1.js"
-  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-  crossorigin="anonymous" defer></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js" defer></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous" defer></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous" defer></script>
+
+
+  <link rel="stylesheet" type="text/css" href="style.css">
   <script src="./app.js" defer></script>
 </head>
 <body>
     <nav class="nav">
         <div class="create-edit-buttons">
             <button>Create</button>
-            <button>Edit</button>
+            <button data-target="modal1" class="btn modal-trigger populate">Edit</button>
+            <!-- <button>Edit</button> -->
         </div>
         <div class="nav-name hidden"><a class="whitelinks" href="#">Bailey Matt</a></div>
         <div class="nav-allPosts hidden"><a class="whitelinks" href="#">Travel Posts</a></div>
@@ -38,6 +40,72 @@
         <div id="listOneBlog"></div>
     </div>
 
+    <div id="edit-modal" class="modal">
+       <div class="modal-content">
+           <h2>Edit Your Blog</h2>
+           <div class="edit-content">
+               <!-- MATERIALIZE -->
+               <!-- res.body[0] -->
+               <div class="input-field">
+                   <input id="name-edit" type="text" class="validate"> 
+                   <label for="name-edit">Full Name</label>
+               </div>
+               <div class="input-field">
+                    <input id="destination-edit" type="text" class="validate"> 
+                    <label for="destination-edit">Destination</label>
+                </div>
+               <div class="input-field">
+                    <input id="image-edit" type="text" class="validate"> 
+                    <label for="image-edit">Image URL</label>
+                </div>
+                <!-- res.body[1] -->
+                <div class="input-field">
+                    <input id="favoriteMemory" type="text" class="validate"> 
+                    <label for="favoriteMemory">Favorite Memory</label>
+                </div>
+                <div class="input-field">
+                    <input id="leastFavoriteMemory" type="text" class="validate"> 
+                    <label for="leastFavoriteMemory">Least Favorite Memory</label>
+                </div>
+                <div class="row">
+                    <div class="input-field col s4">
+                        <input id="landmark-edit1" type="text" class="validate"> 
+                        <label for="landmark-edit1">Landmarks</label>
+                    </div>
+                    <div class="input-field col s4">
+                        <input id="landmark-edit2" type="text" class="validate"> 
+                        <label for="landmark-edit2">Landmarks</label>
+                    </div>
+                    <div class="input-field col s4">
+                        <input id="landmark-edit3" type="text" class="validate"> 
+                        <label for="landmark-edit3">Landmarks</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s4">
+                        <input id="restaurant-edit1" type="text" class="validate"> 
+                        <label for="restaurant-edit1">Restaurant</label>
+                    </div>
+                    <div class="input-field col s4">
+                        <input id="restaurant-edit2" type="text" class="validate"> 
+                        <label for="restaurant-edit2">Restaurant</label>
+                    </div>
+                    <div class="input-field col s4">
+                        <input id="restaurant-edit3" type="text" class="validate"> 
+                        <label for="restaurant-edit3">Restaurant</label>
+                    </div>
+                </div>
+                <div class="input-field">
+                    <input id="rating" type="text" class="validate"> 
+                    <label for="rating">Rating</label>
+                </div>
+            </div>
+
+       </div>
+       <div class="modal-footer">
+            <!-- <a href="#!" class="modal-close waves-effect waves-green btn-flat">Submit</a> -->
+       </div>
+    </div>
      
 </body>
 </html>
