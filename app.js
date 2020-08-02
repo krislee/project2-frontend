@@ -12,10 +12,34 @@ const getAll = async () => {
     const data = await response.json()
     console.log(data)
     data.forEach((blog) => {
-        const parentDiv = $('<div>').attr('id', blog._id)
+        const $placediv = $('<div>')
+        .attr({'id': blog._id, 'class': 'placeDiv'})
+        .text(`${blog.destination}`)
+        .on('click', showOneBlog)
+        .on('click', removeDisplayedBlog)
+    $('#listAllBlogs').append($placediv)
     })
 }
 
+const showOneBlog = async () => {
+    const response = await fetch(`${URL}/travel/${event.target.id}`)
+    const data = await response.json()
+    
+    const $oneBlog = $('<div>').attr({'id': data._id, 'class': 'oneBlog'})
+    const $title = $('<h1>').attr('class', 'headingTitle').text(`${data.destination}`)
+    const $imageCover = $('<img>').attr({'src': `${data.image}`, 'class': 'image-cover'})
+    
+    const $contentDiv = $('<div>').html(`<p><span class="favoriteHeading">Favorite Heading</span>${data.content[0].favoriteMemory}</p>`)
+
+    $oneBlog.append($title).append($imageCover).append($contentDiv)
+    $('#listOneBlog').append($oneBlog)
+    console.log(data)
+
+}   
+
+// const removeDisplayedBlog = () => {
+//     if (event.target.id !== )
+// }
 getAll()
 
 

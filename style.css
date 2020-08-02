@@ -58,10 +58,40 @@
     color: red;
 }
 
-#listAllBlogs {
+/* #listAllBlogs {
     float: right;
     width: 30%;
-    background-color: bisque;
+    background-color: peru;
+    height: 100%;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+} */
+
+#gridBlogs {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 2fr 0.75fr;
+    
+}
+#listAllBlogs {
+    grid-row: 1/2;
+    grid-column: 2/3;
+    padding-top: 15px;
+}
+
+#listOneBlog {
+    grid-row: 1/2;
+    grid-column: 1/2;
+    padding-top: 15px
+}
+.placeDiv {
+    padding-bottom: 10px;
+}
+
+.image-cover {
+    width: 100%;
+    display: block;
 }
 @media screen and (max-width:599px) {
     .burger::before {
