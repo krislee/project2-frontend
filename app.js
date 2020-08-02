@@ -15,10 +15,11 @@ const getAll = async () => {
         const $placediv = $('<div>')
         .attr({'id': blog._id, 'class': 'placeDiv'})
         .text(`${blog.destination}`)
-        .on('click', showOneBlog)
+        .on('click', () => {
+            showOneBlog(event.target.id)
+        })
         .on('click', (event) => {
             editContent = blog.content[0]._id
-            // console.log(editContent)
         })
         .on('click', editBlog)
         .on('click', (event) => {
@@ -29,28 +30,11 @@ const getAll = async () => {
     })
 }
 
-  
-/* 
-Click on the div which is assigned w/ heading objectID when we make new divs for 
-each of the get all blog posts. Click on the div and it will run the function. 
-Inside the function, there will be a .fetch request to show one only, 
-so the response data retrieved back will have input.val(data.someProperty), 
-and one of the outside url parameter variable will be assigned to the 
-heading.content.place value (don’t know if this is necessary but will also assign 
-the edit button id to have the same id as div (event.target.id)). 
-And then click on edit button to have the modal pop up with fields already populated. 
-Then also, with the response data back 
-Also the second outside url parameter variable will get assigned to the 
-div id attribute value (event.target.id) inside the function separate from fetch function
-
-Then when you click on edit button, take the outside url parameter for the put endpoint */
-
 // POPULATE THE INPUT FIELDS WHEN BLOG IS CLICKED
 const editBlog = async(event) => {
     // $('.populate').attr('id', `${event.target.id}`)
     const response = await fetch(`${URL}/travel/${event.target.id}`)
     const data = await response.json()
-    // console.log(data.content[0].landmark)
     $('#name-edit').val(`${data.name}`)
     $('#destination-edit').val(`${data.destination}`)
     $('#image-edit').val(`${data.image}`)
@@ -83,6 +67,7 @@ $('.populate').on('click', (event) => {
     $('.modal').modal()
 })
 
+
 $('#submit-edit').on('click', async(event) => {
  const updatedHeading = {
     name: $('#name-edit').val(),
@@ -99,33 +84,46 @@ $('#submit-edit').on('click', async(event) => {
  }
 
  console.log(event.target.id)
-await fetch(`${URL}/travel/heading/${event.target.id}`, {
-    method: "put",
-    headers: {"Content-Type": "application/json"},
-    body: JSON.stringify(updatedHeading)
- })
+// const headingUpdate = async () => {
+    await fetch(`${URL}/travel/heading/${event.target.id}`, {
+        method: "put",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(updatedHeading)
+    })
+// }
 
-await fetch(`${URL}/travel/content/${editContent}`, {
-    method: "put",
-    headers: {"Content-Type": "application/json"},
-    body: JSON.stringify(updatedContent)
- })
+// const contentUpdate = async () => {
+    await fetch(`${URL}/travel/content/${editContent}`, {
+        method: "put",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(updatedContent)
+    })
+// }
+
+// headingUpdate()
+// contentUpdate()
  $('.modal').modal('hide')
 
+// const one = async() => {
+//     const response = await fetch(`${URL}/travel/${event.target.id}`)
+//     console.log(response.json())
+// }
+// one()
 
-//  $(window).on('load', async() => {
-//      await showOneBlog()
-//  })
-
-$('#gridBlogs').empty()
+//  function refreshPage(){
+//     window.location.reload();
+//  }
+// refreshPage()
+$('#listAllBlogs').empty()
+$('#listOneBlog').empty()
 getAll()
-// const repopulateOne = async() 
-
+showOneBlog(event.target.id)
 })
 
+
 // SHOW CONTENT OF CLICKED BLOG NAME
-const showOneBlog = async () => {
-    const response = await fetch(`${URL}/travel/${event.target.id}`)
+const showOneBlog = async (someId) => {
+    const response = await fetch(`${URL}/travel/${someId}`)
     const data = await response.json()
 
     $('#listOneBlog').empty()
