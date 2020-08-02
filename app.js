@@ -2,7 +2,7 @@
 const deployedURL = null
 const URL = deployedURL ? deployedURL : "http://localhost:3000"
 
-
+let editContent = null
 /////// DISPLAY ALL ///////
 
 const getAll = async () => {
@@ -16,7 +16,15 @@ const getAll = async () => {
         .attr({'id': blog._id, 'class': 'placeDiv'})
         .text(`${blog.destination}`)
         .on('click', showOneBlog)
+        .on('click', (event) => {
+            editContent = blog.content[0]._id
+            // console.log(editContent)
+        })
         .on('click', editBlog)
+        .on('click', (event) => {
+           console.log(event.target.id)
+           $('#submit-edit').attr('id', `${blog._id}`)
+        })
     $('#listAllBlogs').append($placediv)
     })
 }
@@ -42,7 +50,7 @@ const editBlog = async(event) => {
     // $('.populate').attr('id', `${event.target.id}`)
     const response = await fetch(`${URL}/travel/${event.target.id}`)
     const data = await response.json()
-    console.log(data.content[0].landmark)
+    // console.log(data.content[0].landmark)
     $('#name-edit').val(`${data.name}`)
     $('#destination-edit').val(`${data.destination}`)
     $('#image-edit').val(`${data.image}`)
@@ -73,6 +81,46 @@ const editBlog = async(event) => {
 // OPEN MODAL WITH INPUT FIELDS ALREADY POPULATED WHEN YOU CLICK ON EDIT BUTTON
 $('.populate').on('click', (event) => {
     $('.modal').modal()
+})
+
+$('#submit-edit').on('click', async(event) => {
+ const updatedHeading = {
+    name: $('#name-edit').val(),
+    createdOn: new Date(),
+    destination: $('#destination-edit').val(),
+    image: $('#image-edit').val()
+ }
+ const updatedContent = {
+     favoriteMemory: $('#favoriteMemory').val(),
+     leastFavoriteMemory: $('#leastFavoriteMemory').val(),
+     rating: $('#rating').val(),
+     landmark: [$('#landmark-edit1').val(), $('#landmark-edit2').val(), $('#landmark-edit3').val()],
+     restaurant: [$('#restaurant-edit1').val(), $('#restaurant-edit2').val(), $('#restaurant-edit3').val()]
+ }
+
+ console.log(event.target.id)
+await fetch(`${URL}/travel/heading/${event.target.id}`, {
+    method: "put",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify(updatedHeading)
+ })
+
+await fetch(`${URL}/travel/content/${editContent}`, {
+    method: "put",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify(updatedContent)
+ })
+ $('.modal').modal('hide')
+
+
+//  $(window).on('load', async() => {
+//      await showOneBlog()
+//  })
+
+$('#gridBlogs').empty()
+getAll()
+// const repopulateOne = async() 
+
 })
 
 // SHOW CONTENT OF CLICKED BLOG NAME
@@ -130,7 +178,7 @@ const showOneBlog = async () => {
     $landRestDiv.append($landmarkDiv).append($restaurantDiv)
     $oneBlog.append($title).append($imageCover).append($contentParaDiv).append($landRestDiv).append($ratingDiv)
     $('#listOneBlog').append($oneBlog)
-    console.log(data)
+    // console.log(data)
 
 }   
 
