@@ -58,7 +58,11 @@ nav {
     color: red;
 }
 
-
+#listAllBlogs {
+    float: right;
+    width: 30%;
+    background-color: bisque;
+}
 @media screen and (max-width:599px) {
     .burger::before {
         content:'\2630';
