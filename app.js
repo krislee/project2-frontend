@@ -47,15 +47,21 @@ const editBlog = async(event) => {
     $('#favoriteMemory').val(`${data.content[0].favoriteMemory}`)
     $('#leastFavoriteMemory').val(`${data.content[0].leastFavoriteMemory}`)
     $('#rating').val(`${data.content[0].rating}`)
-    $('.form-group').each((input) => {
-        input.val('')
-    })
-    // $('#landmark-edit1').val('')
-    // $('#landmark-edit2').val('')
-    // $('#landmark-edit3').val('')
-    // $('#restaurant-edit1').val('')
-    // $('#restaurant-edit2').val('')
-    // $('#restaurant-edit3').val('')
+    // $('.form-group').each((input) => {
+    //     input.val('')
+    // })
+    $('#name-edit').val('')
+    $('#destination-edit').val('')
+    $('#image-edit').val('')
+    $('#favoriteMemory').val('')
+    $('#leastFavoriteMemory').val('')
+    $('#landmark-edit1').val('')
+    $('#landmark-edit2').val('')
+    $('#landmark-edit3').val('')
+    $('#restaurant-edit1').val('')
+    $('#restaurant-edit2').val('')
+    $('#restaurant-edit3').val('')
+    $('#rating').val('')
     data.content[0].landmark.forEach((land,index) => {
         if(index === 0) {
             $('#landmark-edit1').val(land)
@@ -177,9 +183,22 @@ const showOneBlog = async (someId) => {
 
 ////// CREATE NEW POSTS /////
 $('#submit-create').on('click', async(event) =>{
-    $('.form-group').each((input) => {
-        input.val('')
-    })
+    // $('.form-group').each((input) => {
+    //     input.val('')
+    // })
+
+    $('#name-create').val('')
+    $('#destination-create').val('')
+    $('#image-create').val('')
+    $('#createFavoriteMemory').val('')
+    $('#createLeastFavoriteMemory').val('')
+    $('#restaurant-create1').val('')
+    $('#restaurant-create2').val('')
+    $('#restaurant-create3').val('')
+    $('#landmark-create1').val('')
+    $('#landmark-create2').val('')
+    $('#landmark-create3').val('')
+    $('#createRating').val('')
     const newHeading = {
         name: $('#name-create').val(),
         createdOn: new Date(),
