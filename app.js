@@ -39,17 +39,6 @@ const getAll = async () => {
 /////// POPULATE THE INPUT FIELDS WHEN BLOG NAME ON THE SIDE IS CLICKED ///////
 const editBlog = async(event) => {
     // $('.populate').attr('id', `${event.target.id}`)
-    const response = await fetch(`${URL}/travel/${event.target.id}`)
-    const data = await response.json()
-    $('#name-edit').val(`${data.name}`)
-    $('#destination-edit').val(`${data.destination}`)
-    $('#image-edit').val(`${data.image}`)
-    $('#favoriteMemory').val(`${data.content[0].favoriteMemory}`)
-    $('#leastFavoriteMemory').val(`${data.content[0].leastFavoriteMemory}`)
-    $('#rating').val(`${data.content[0].rating}`)
-    // $('.form-group').each((input) => {
-    //     input.val('')
-    // })
     $('#name-edit').val('')
     $('#destination-edit').val('')
     $('#image-edit').val('')
@@ -62,6 +51,17 @@ const editBlog = async(event) => {
     $('#restaurant-edit2').val('')
     $('#restaurant-edit3').val('')
     $('#rating').val('')
+    const response = await fetch(`${URL}/travel/${event.target.id}`)
+    const data = await response.json()
+    $('#name-edit').val(`${data.name}`)
+    $('#destination-edit').val(`${data.destination}`)
+    $('#image-edit').val(`${data.image}`)
+    $('#favoriteMemory').val(`${data.content[0].favoriteMemory}`)
+    $('#leastFavoriteMemory').val(`${data.content[0].leastFavoriteMemory}`)
+    $('#rating').val(`${data.content[0].rating}`)
+    // $('.form-group').each((input) => {
+    //     input.val('')
+    // })
     data.content[0].landmark.forEach((land,index) => {
         if(index === 0) {
             $('#landmark-edit1').val(land)
