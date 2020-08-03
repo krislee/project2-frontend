@@ -215,6 +215,7 @@ $('#submit-create').on('click', async(event) =>{
     $('#listOneBlog').empty()
     getAll()
     showOneBlog(data._id)
+
     $('#name-create').val('')
     $('#destination-create').val('')
     $('#image-create').val('')
