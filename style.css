@@ -58,15 +58,11 @@
     color: red;
 }
 
-/* #listAllBlogs {
-    float: right;
-    width: 30%;
-    background-color: peru;
-    height: 100%;
-    text-align: center;
-    padding-top: 10px;
-    padding-bottom: 10px;
-} */
+/* REMOVE BULLET POINTS AND REMOVE PADDING TO ALIGN TEXT LEFT */
+ul {
+    list-style-type: none;
+    padding: 0
+}
 
 
 #gridBlogs {

@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Travel Diary</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-        <!-- Compiled and minified CSS -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-        <!-- Compiled and minified JavaScript -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js" defer></script>
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous" defer></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous" defer></script>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+        <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous" defer></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous" defer></script>
 
   <link rel="stylesheet" type="text/css" href="style.css">
   <script src="./app.js" defer></script>
@@ -20,8 +21,8 @@
     <nav class="nav">
         <div class="create-edit-buttons">
             <button>Create</button>
-            <button data-target="modal1" class="btn modal-trigger populate">Edit</button>
-            <!-- <button>Edit</button> -->
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Edit</button>
         </div>
         <div class="nav-name hidden"><a class="whitelinks" href="#">Bailey Matt</a></div>
         <div class="nav-allPosts hidden"><a class="whitelinks" href="#">Travel Posts</a></div>
@@ -39,71 +40,71 @@
         <div id="listAllBlogs"></div>
         <div id="listOneBlog"></div>
     </div>
-
-    <!-- POP UP MODAL -->
-    <div id="edit-modal" class="modal">
-       <div class="modal-content">
-           <h2>Edit Your Blog</h2>
-               <!-- MATERIALIZE -->
-               <!-- res.body[0] -->
-               <div class="input-field">
-                   <input id="name-edit" type="text" class="validate"> 
-                   <label for="name-edit">Full Name</label>
-               </div>
-               <div class="input-field">
-                    <input id="destination-edit" type="text" class="validate"> 
-                    <label for="destination-edit">Destination</label>
-                </div>
-               <div class="input-field">
-                    <input id="image-edit" type="text" class="validate"> 
-                    <label for="image-edit">Image URL</label>
-                </div>
-                <!-- res.body[1] -->
-                <div class="input-field">
-                    <input id="favoriteMemory" type="text" class="validate"> 
-                    <label for="favoriteMemory">Favorite Memory</label>
-                </div>
-                <div class="input-field">
-                    <input id="leastFavoriteMemory" type="text" class="validate"> 
-                    <label for="leastFavoriteMemory">Least Favorite Memory</label>
-                </div>
-                <div class="row">
-                    <div class="input-field col s4">
-                        <input id="landmark-edit1" type="text" class="validate"> 
-                        <label for="landmark-edit1">Landmarks</label>
-                    </div>
-                    <div class="input-field col s4">
-                        <input id="landmark-edit2" type="text" class="validate"> 
-                        <label for="landmark-edit2">Landmarks</label>
-                    </div>
-                    <div class="input-field col s4">
-                        <input id="landmark-edit3" type="text" class="validate"> 
-                        <label for="landmark-edit3">Landmarks</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s4">
-                        <input id="restaurant-edit1" type="text" class="validate"> 
-                        <label for="restaurant-edit1">Restaurant</label>
-                    </div>
-                    <div class="input-field col s4">
-                        <input id="restaurant-edit2" type="text" class="validate"> 
-                        <label for="restaurant-edit2">Restaurant</label>
-                    </div>
-                    <div class="input-field col s4">
-                        <input id="restaurant-edit3" type="text" class="validate"> 
-                        <label for="restaurant-edit3">Restaurant</label>
-                    </div>
-                </div>
-                <div class="input-field">
-                    <input id="rating" type="text" class="validate"> 
-                    <label for="rating">Rating</label>
-                </div>
-            <button class="btn grey center-align waves-effect waves-green btn-flat" id="submit-edit">Submit</button>
-            <button class="btn red center-align waves-effect waves-green btn-flat" id="delete">Delete</button>
-
-       </div>
-    </div>
+  
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+      <div class="modal-content">
+           <div class="modal-header">
+               <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                   <span aria-hidden="true">&times;</span>
+                  </button>
+          </div>
+          <div class="modal-body"> 
+              <h2>Edit Your Blog</h2>
+          <!-- res.body[0] -->
+              <form class->
+                  <div class="form-group">
+                      <input id="name-edit" type="text" class="form-control" placeholder='Full Name'> 
+                  </div>
+                  <div class="form-group">
+                      <input id="destination-edit" type="text" class="form-control" placeholder='Destination'> 
+                  </div>
+                  <div class="form-group">
+                      <input id="image-edit" type="text" class="form-control" placeholder='Image URL'> 
+                  </div>
+        <!-- res.body[1] -->
+                  <div class="form-group">
+                      <textarea class="form-control" id="favoriteMemory" rows="3" placeholder="Favorite Memory"></textarea>
+                  </div>
+                  <div class="form-group">
+                      <textarea class="form-control" id="leastFavoriteMemory" rows="3" placeholder="Least Favorite Memory"></textarea>
+                  </div>
+                  <div class="form-group row"> 
+                      <div class="col">
+                          <input type="text" class="form-control" id="restaurant-edit1" placeholder="Restaurant">
+                      </div>
+                      <div class="col">
+                          <input type="text" class="form-control" id="restaurant-edit2" placeholder="Restaurant">
+                      </div>
+                      <div class="col">
+                          <input type="text" class="form-control" id="restaurant-edit3" placeholder="Restaurant">
+                      </div>
+                  </div>
+                  <div class="form-group row">
+                      <div class="col">
+                          <!-- <label for="landmark-edit1">Landmark</label> -->
+                          <input type="text" class="form-control" id="landmark-edit1"  placeholder="Landmark">
+                      </div>
+                      <div class="col">
+                          <!-- <label for="landmark-edit2">Landmark</label> -->
+                          <input type="text" class="form-control" id="landmark-edit2" placeholder="Landmark">
+                      </div>
+                      <div class="col">
+                          <!-- <label for="landmark-edit3">Landmark</label> -->
+                          <input type="text" class="form-control" id="landmark-edit3" placeholder="Landmark">
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <input id="rating" type="text" class="form-control" placeholder='Rating'>
+                  </div>
+                  <button type="button" class="btn btn-success" id="submit-edit">Submit</button>
+              </form>
+          </div>
+      </div>
+  </div>
+</div>
      
     
 </body>

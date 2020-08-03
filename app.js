@@ -73,9 +73,9 @@ const editBlog = async(event) => {
 
 
 // OPEN MODAL WITH INPUT FIELDS ALREADY POPULATED WHEN YOU CLICK ON EDIT BUTTON
-$('.populate').on('click', (event) => {
-    $('.modal').modal()
-})
+// $('.populate').on('click', (event) => {
+//     $('.modal').modal()
+// })
 
 
 $('#submit-edit').on('click', async(event) => {
@@ -107,7 +107,7 @@ $('#submit-edit').on('click', async(event) => {
         body: JSON.stringify(updatedContent)
     })
 
- $('.modal').modal('hide')
+$('.modal').modal('hide')
 
 $('#listAllBlogs').empty()
 $('#listOneBlog').empty()
