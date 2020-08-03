@@ -187,18 +187,6 @@ $('#submit-create').on('click', async(event) =>{
     //     input.val('')
     // })
 
-    $('#name-create').val('')
-    $('#destination-create').val('')
-    $('#image-create').val('')
-    $('#createFavoriteMemory').val('')
-    $('#createLeastFavoriteMemory').val('')
-    $('#restaurant-create1').val('')
-    $('#restaurant-create2').val('')
-    $('#restaurant-create3').val('')
-    $('#landmark-create1').val('')
-    $('#landmark-create2').val('')
-    $('#landmark-create3').val('')
-    $('#createRating').val('')
     const newHeading = {
         name: $('#name-create').val(),
         createdOn: new Date(),
@@ -227,6 +215,18 @@ $('#submit-create').on('click', async(event) =>{
     $('#listOneBlog').empty()
     getAll()
     showOneBlog(data._id)
+    $('#name-create').val('')
+    $('#destination-create').val('')
+    $('#image-create').val('')
+    $('#createFavoriteMemory').val('')
+    $('#createLeastFavoriteMemory').val('')
+    $('#restaurant-create1').val('')
+    $('#restaurant-create2').val('')
+    $('#restaurant-create3').val('')
+    $('#landmark-create1').val('')
+    $('#landmark-create2').val('')
+    $('#landmark-create3').val('')
+    $('#createRating').val('')
 })
 
 ///// DELETE POST /////
