@@ -1,5 +1,5 @@
-// const deployedURL = "https://ga-project02.herokuapp.com"
-const deployedURL = null
+const deployedURL = "https://ga-project02.herokuapp.com"
+// const deployedURL = null
 const URL = deployedURL ? deployedURL : "http://localhost:3000"
 
 let editContent = null
@@ -14,13 +14,9 @@ const getAll = async () => {
     const data = await response.json()
     console.log(data)
     data.forEach((blog) => {
-        // console.log(new Date(blog.createdOn).toDateString())
-       
         const $placediv = $('<div>')
         .attr({'id': blog._id, 'class': 'placeDiv'})
-        .append(`<h5>${blog.destination}</h5>`)
-        .append(`<p>${new Date(blog.createdOn).toDateString()}</p>`)
-        // .html(`<h5>${blog.destination}</h5> <p>${new Date(blog.createdOn).toDateString()}</p>`)
+        .text(`${blog.destination}`)
         .on('click', () => {
             showOneBlog(event.target.id)
         })
