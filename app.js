@@ -174,7 +174,7 @@ const showOneBlog = async (someId) => {
 
 ////// CREATE NEW POSTS /////
 $('#submit-create').on('click', async(event) =>{
-    $('.form-group').forEach((input) => {
+    $('.form-group').each((input) => {
         input.val('')
     })
     const newHeading = {
