@@ -47,12 +47,15 @@ const editBlog = async(event) => {
     $('#favoriteMemory').val(`${data.content[0].favoriteMemory}`)
     $('#leastFavoriteMemory').val(`${data.content[0].leastFavoriteMemory}`)
     $('#rating').val(`${data.content[0].rating}`)
-    $('#landmark-edit1').val('')
-    $('#landmark-edit2').val('')
-    $('#landmark-edit3').val('')
-    $('#restaurant-edit1').val('')
-    $('#restaurant-edit2').val('')
-    $('#restaurant-edit3').val('')
+    $('.form-group').each((input) => {
+        input.val('')
+    })
+    // $('#landmark-edit1').val('')
+    // $('#landmark-edit2').val('')
+    // $('#landmark-edit3').val('')
+    // $('#restaurant-edit1').val('')
+    // $('#restaurant-edit2').val('')
+    // $('#restaurant-edit3').val('')
     data.content[0].landmark.forEach((land,index) => {
         if(index === 0) {
             $('#landmark-edit1').val(land)
