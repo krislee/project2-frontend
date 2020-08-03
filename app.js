@@ -3,6 +3,7 @@ const deployedURL = null
 const URL = deployedURL ? deployedURL : "http://localhost:3000"
 
 let editContent = null
+let editHeading = null
 /////// DISPLAY ALL ///////
 
 const getAll = async () => {
@@ -10,7 +11,7 @@ const getAll = async () => {
     If the fetch was successful, then the promise is resolved. The value of the resolved promise (which is the data) 
     will be stored in response */
     const data = await response.json()
-    console.log(data)
+    // console.log(data)
     data.forEach((blog) => {
         const $placediv = $('<div>')
         .attr({'id': blog._id, 'class': 'placeDiv'})
@@ -20,12 +21,14 @@ const getAll = async () => {
         })
         .on('click', (event) => {
             editContent = blog.content[0]._id
+            editHeading = blog._id
+            console.log(editHeading)
         })
         .on('click', editBlog)
-        .on('click', (event) => {
-           console.log(event.target.id)
-           $('#submit-edit').attr('id', `${blog._id}`)
-        })
+        // .on('click', (event) => {
+        //    console.log(event.target.id)
+        //    $('#submit-edit').attr('id', `${blog._id}`) //need to assign an id to the the submit button to put the id in the url put request
+        // })
     $('#listAllBlogs').append($placediv)
     })
 }
@@ -41,6 +44,12 @@ const editBlog = async(event) => {
     $('#favoriteMemory').val(`${data.content[0].favoriteMemory}`)
     $('#leastFavoriteMemory').val(`${data.content[0].leastFavoriteMemory}`)
     $('#rating').val(`${data.content[0].rating}`)
+    $('#landmark-edit1').val('')
+    $('#landmark-edit2').val('')
+    $('#landmark-edit3').val('')
+    $('#restaurant-edit1').val('')
+    $('#restaurant-edit2').val('')
+    $('#restaurant-edit3').val('')
     data.content[0].landmark.forEach((land,index) => {
         if(index === 0) {
             $('#landmark-edit1').val(land)
@@ -83,9 +92,9 @@ $('#submit-edit').on('click', async(event) => {
      restaurant: [$('#restaurant-edit1').val(), $('#restaurant-edit2').val(), $('#restaurant-edit3').val()]
  }
 
- console.log(event.target.id)
+ console.log(editHeading)
 // const headingUpdate = async () => {
-    await fetch(`${URL}/travel/heading/${event.target.id}`, {
+    await fetch(`${URL}/travel/heading/${editHeading}`, {
         method: "put",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(updatedHeading)
@@ -117,7 +126,7 @@ $('#submit-edit').on('click', async(event) => {
 $('#listAllBlogs').empty()
 $('#listOneBlog').empty()
 getAll()
-showOneBlog(event.target.id)
+showOneBlog(editHeading)
 })
 
 
