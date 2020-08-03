@@ -89,7 +89,7 @@ ul {
 }
 /* SIDEBAR */
 .placeDiv {
-    padding-bottom: 10px;
+    padding-bottom: 5px;
     border: 1px solid black;
 }
 
@@ -100,6 +100,8 @@ ul {
 #landmarkDiv, #restaurantDiv {
     width: 100%
 }
+
+/* IMAGE COVER */
 .image-cover {
     width: 100%;
     display: block;

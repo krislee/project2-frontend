@@ -4,18 +4,23 @@ const URL = deployedURL ? deployedURL : "http://localhost:3000"
 
 let editContent = null
 let editHeading = null
-/////// DISPLAY ALL ///////
+let deleteHeading = null
 
+/////// DISPLAY ALL POST NAMES ON THE SITE///////
 const getAll = async () => {
     const response = await fetch(`${URL}/travel`) /*Fetch data from database, the data will be returned as a promise
     If the fetch was successful, then the promise is resolved. The value of the resolved promise (which is the data) 
     will be stored in response */
     const data = await response.json()
-    // console.log(data)
+    console.log(data)
     data.forEach((blog) => {
+        // console.log(new Date(blog.createdOn).toDateString())
+       
         const $placediv = $('<div>')
         .attr({'id': blog._id, 'class': 'placeDiv'})
-        .text(`${blog.destination}`)
+        .append(`<h5>${blog.destination}</h5>`)
+        .append(`<p>${new Date(blog.createdOn).toDateString()}</p>`)
+        // .html(`<h5>${blog.destination}</h5> <p>${new Date(blog.createdOn).toDateString()}</p>`)
         .on('click', () => {
             showOneBlog(event.target.id)
         })
@@ -23,6 +28,7 @@ const getAll = async () => {
             editContent = blog.content[0]._id
             editHeading = blog._id
             console.log(editHeading)
+            deleteHeading = blog._id
         })
         .on('click', editBlog)
         // EVENT TARGET ID DID NOT UPDATE 
@@ -30,11 +36,11 @@ const getAll = async () => {
         //    console.log(event.target.id)
         //    $('#submit-edit').attr('id', `${blog._id}`) //need to assign an id to the the submit button to put the id in the url put request
         // })
-    $('#listAllBlogs').append($placediv)
+        $('#listAllBlogs').append($placediv)
     })
 }
 
-// POPULATE THE INPUT FIELDS WHEN BLOG IS CLICKED
+/////// POPULATE THE INPUT FIELDS WHEN BLOG NAME ON THE SIDE IS CLICKED ///////
 const editBlog = async(event) => {
     // $('.populate').attr('id', `${event.target.id}`)
     const response = await fetch(`${URL}/travel/${event.target.id}`)
@@ -71,13 +77,7 @@ const editBlog = async(event) => {
     })
 }
 
-
-// OPEN MODAL WITH INPUT FIELDS ALREADY POPULATED WHEN YOU CLICK ON EDIT BUTTON
-// $('.populate').on('click', (event) => {
-//     $('.modal').modal()
-// })
-
-
+////// CLICK ON SUBMIT BUTTON TO SEND PUT REQUEST AND REFRESH PAGE WITH UPDATED POST ////////
 $('#submit-edit').on('click', async(event) => {
  const updatedHeading = {
     name: $('#name-edit').val(),
@@ -93,7 +93,7 @@ $('#submit-edit').on('click', async(event) => {
      restaurant: [$('#restaurant-edit1').val(), $('#restaurant-edit2').val(), $('#restaurant-edit3').val()]
  }
 
- console.log(editHeading)
+//  console.log(editHeading)
 
     await fetch(`${URL}/travel/heading/${editHeading}`, {
         method: "put",
@@ -107,7 +107,7 @@ $('#submit-edit').on('click', async(event) => {
         body: JSON.stringify(updatedContent)
     })
 
-$('.modal').modal('hide')
+$('#editModal').modal('hide')
 
 $('#listAllBlogs').empty()
 $('#listOneBlog').empty()
@@ -116,7 +116,7 @@ showOneBlog(editHeading)
 })
 
 
-// SHOW CONTENT OF CLICKED BLOG NAME
+/////// SHOW CONTENT OF CLICKED BLOG NAME ////////
 const showOneBlog = async (someId) => {
     const response = await fetch(`${URL}/travel/${someId}`)
     const data = await response.json()
@@ -175,10 +175,62 @@ const showOneBlog = async (someId) => {
 
 }   
 
+////// CREATE NEW POSTS /////
+$('#submit-create').on('click', async(event) =>{
+    const newHeading = {
+        name: $('#name-create').val(),
+        createdOn: new Date(),
+        destination: $('#destination-create').val(),
+        image: $('#image-create').val()
+    }
+    const newContent = 
+    {
+        landmark: [$('#landmark-create1').val(), $('#landmark-create2').val(), $('#landmark-create3').val()],
+        restaurant: [$('#restaurant-create1').val(), $('#restaurant-create2').val(), $('#restaurant-create3').val()],
+        favoriteMemory: $('#createFavoriteMemory').val(),
+        leastFavoriteMemory: $('#createLeastFavoriteMemory').val(),
+        rating: $('#createRating').val()
+    }
+    const newPost = [newHeading, newContent]
+
+    const response = await fetch(`${URL}/travel`, {
+        method: "post",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(newPost)
+    })
+    const data = await response.json()
+ 
+    $('#createModal').modal('hide')
+    $('#listAllBlogs').empty()
+    $('#listOneBlog').empty()
+    getAll()
+    showOneBlog(data._id)
+})
+
+///// DELETE POST /////
+$('#submit-delete').on('click', async() => {
+    const response = await fetch(`${URL}/travel/${deleteHeading}`, {
+        method: "delete"
+    })
+    const data = await response.json()
+
+    $('#editModal').modal('hide')
+    $('#listAllBlogs').empty()
+    $('#listOneBlog').empty()
+    getAll()
+
+    data.forEach((eachData,index,data) => {
+        if(index === data.length-1){
+            showOneBlog(eachData._id)
+        }
+    })
+})
+
+
 
 getAll()
 
-
+  
 
 
 
@@ -208,4 +260,3 @@ $(window).resize (function(e) {
    }
 })
 
-// $('.modal').modal()

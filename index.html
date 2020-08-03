@@ -20,9 +20,9 @@
 <body>
     <nav class="nav">
         <div class="create-edit-buttons">
-            <button>Create</button>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createModal">Create</button>
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Edit</button>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editModal">Edit</button>
         </div>
         <div class="nav-name hidden"><a class="whitelinks" href="#">Bailey Matt</a></div>
         <div class="nav-allPosts hidden"><a class="whitelinks" href="#">Travel Posts</a></div>
@@ -41,18 +41,18 @@
         <div id="listOneBlog"></div>
     </div>
   
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- EDIT MODAL -->
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
       <div class="modal-content">
            <div class="modal-header">
-               <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+               <h5 class="modal-title" id="exampleModalLabel">Edit Your Blog</h5>
                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                    <span aria-hidden="true">&times;</span>
                   </button>
           </div>
           <div class="modal-body"> 
-              <h2>Edit Your Blog</h2>
+
           <!-- res.body[0] -->
               <form class->
                   <div class="form-group">
@@ -99,13 +99,77 @@
                   <div class="form-group">
                       <input id="rating" type="text" class="form-control" placeholder='Rating'>
                   </div>
-                  <button type="button" class="btn btn-success" id="submit-edit">Submit</button>
+                  <button type="button" class="btn btn-success" id="submit-edit">Update</button>
+                  <button type="button" class="btn btn-success" id="submit-delete">Delete</button>
               </form>
           </div>
       </div>
   </div>
 </div>
      
-    
+<!-- CREATE MODAL -->
+<div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+             <div class="modal-header">
+                 <h5 class="modal-title" id="exampleModalLabel">Create Your Blog</h5>
+                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                    </button>
+            </div>
+            <div class="modal-body"> 
+  
+            <!-- res.body[0] -->
+                <form class->
+                    <div class="form-group">
+                        <input id="name-create" type="text" class="form-control" placeholder='Full Name'> 
+                    </div>
+                    <div class="form-group">
+                        <input id="destination-create" type="text" class="form-control" placeholder='Destination'> 
+                    </div>
+                    <div class="form-group">
+                        <input id="image-create" type="text" class="form-control" placeholder='Image URL'> 
+                    </div>
+          <!-- res.body[1] -->
+                    <div class="form-group">
+                        <textarea class="form-control" id="createFavoriteMemory" rows="3" placeholder="Favorite Memory"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" id="createLeastFavoriteMemory" rows="3" placeholder="Least Favorite Memory"></textarea>
+                    </div>
+                    <div class="form-group row"> 
+                        <div class="col">
+                            <input type="text" class="form-control" id="restaurant-create1" placeholder="Restaurant">
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" id="restaurant-create2" placeholder="Restaurant">
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" id="restaurant-create3" placeholder="Restaurant">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col">
+                            <!-- <label for="landmark-create1">Landmark</label> -->
+                            <input type="text" class="form-control" id="landmark-create1"  placeholder="Landmark">
+                        </div>
+                        <div class="col">
+                            <!-- <label for="landmark-create2">Landmark</label> -->
+                            <input type="text" class="form-control" id="landmark-create2" placeholder="Landmark">
+                        </div>
+                        <div class="col">
+                            <!-- <label for="landmark-create3">Landmark</label> -->
+                            <input type="text" class="form-control" id="landmark-create3" placeholder="Landmark">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input id="createRating" type="text" class="form-control" placeholder='Rating'>
+                    </div>
+                    <button type="button" class="btn btn-success" id="submit-create">Create</button>
+                </form>
+            </div>
+        </div>
+    </div>
+  </div>
 </body>
 </html>
