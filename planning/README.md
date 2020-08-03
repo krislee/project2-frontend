@@ -16,6 +16,15 @@ This project showcases a travel diary of an author who displays his/her travel e
 
 To render the data from the travel journal API I built on the back-end, jQuery is utilized to work in conjuntion with the API to create a friendly one-user blog. The project is hosted on Netlify platform, and can be viewed [here](https://klee-ga-project02.netlify.app/).
 
+## User Stories
+- User is able to view all travel posts
+- User is able to view one clicked travel post
+- User can edit and delete each travel post
+- User can create new travel post and view the newly created post
+
+## Backend Repo
+View back-end repo [here](https://github.com/krislee/project2-backend)
+
 ## Google Sheet
 
 [Google Sheet](https://docs.google.com/spreadsheets/d/1DRhpnHYU-LVnRYKSALXm_xbMCZ3FsTs6Zl-VJ1MU49E/edit#gid=0) 
