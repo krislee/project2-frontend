@@ -1,5 +1,5 @@
-const deployedURL = "https://ga-project02.herokuapp.com"
-// const deployedURL = null
+// const deployedURL = "https://ga-project02.herokuapp.com"
+const deployedURL = null
 const URL = deployedURL ? deployedURL : "http://localhost:3000"
 
 let editContent = null
@@ -94,36 +94,21 @@ $('#submit-edit').on('click', async(event) => {
  }
 
  console.log(editHeading)
-// const headingUpdate = async () => {
+
     await fetch(`${URL}/travel/heading/${editHeading}`, {
         method: "put",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(updatedHeading)
     })
-// }
 
-// const contentUpdate = async () => {
     await fetch(`${URL}/travel/content/${editContent}`, {
         method: "put",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(updatedContent)
     })
-// }
 
-// headingUpdate()
-// contentUpdate()
  $('.modal').modal('hide')
 
-// const one = async() => {
-//     const response = await fetch(`${URL}/travel/${event.target.id}`)
-//     console.log(response.json())
-// }
-// one()
-
-//  function refreshPage(){
-//     window.location.reload();
-//  }
-// refreshPage()
 $('#listAllBlogs').empty()
 $('#listOneBlog').empty()
 getAll()
