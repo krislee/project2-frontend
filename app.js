@@ -108,7 +108,8 @@ $('#editModal').modal('hide')
 $('#listAllBlogs').empty()
 $('#listOneBlog').empty()
 getAll()
-showOneBlog(editHeading)
+await showOneBlog(editHeading)
+editHeading = null
 })
 
 
@@ -173,6 +174,9 @@ const showOneBlog = async (someId) => {
 
 ////// CREATE NEW POSTS /////
 $('#submit-create').on('click', async(event) =>{
+    $('.form-group').forEach((input) => {
+        input.val('')
+    })
     const newHeading = {
         name: $('#name-create').val(),
         createdOn: new Date(),
