@@ -112,13 +112,26 @@ $('#submit-edit').on('click', async(event) => {
         body: JSON.stringify(updatedContent)
     })
 
-$('#editModal').modal('hide')
+    $('#editModal').modal('hide')
 
-$('#listAllBlogs').empty()
-$('#listOneBlog').empty()
-getAll()
-await showOneBlog(editHeading)
-editHeading = null
+    $('#listAllBlogs').empty()
+    $('#listOneBlog').empty()
+    getAll()
+    await showOneBlog(editHeading)
+    editHeading = null //don't know if I need this code...
+
+    $('#name-edit').val('')
+    $('#destination-edit').val('')
+    $('#image-edit').val('')
+    $('#favoriteMemory').val('')
+    $('#leastFavoriteMemory').val('')
+    $('#landmark-edit1').val('')
+    $('#landmark-edit2').val('')
+    $('#landmark-edit3').val('')
+    $('#restaurant-edit1').val('')
+    $('#restaurant-edit2').val('')
+    $('#restaurant-edit3').val('')
+    $('#rating').val('')
 })
 
 
