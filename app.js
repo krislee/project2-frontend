@@ -1,5 +1,5 @@
-// const deployedURL = "https://ga-project02.herokuapp.com"
-const deployedURL = null
+const deployedURL = "https://ga-project02.herokuapp.com"
+// const deployedURL = null
 const URL = deployedURL ? deployedURL : "http://localhost:3000"
 
 let editContent = null
@@ -25,6 +25,7 @@ const getAll = async () => {
             console.log(editHeading)
         })
         .on('click', editBlog)
+        // EVENT TARGET ID DID NOT UPDATE 
         // .on('click', (event) => {
         //    console.log(event.target.id)
         //    $('#submit-edit').attr('id', `${blog._id}`) //need to assign an id to the the submit button to put the id in the url put request
