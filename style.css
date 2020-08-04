@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@300;500&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
 body {
     background-color: black;
     color:white
@@ -9,6 +10,10 @@ body {
 #scrollablePlaceDiv{
     height: 100px;
     overflow-y: auto
+}
+
+#collapsibleNavbar {
+    justify-content: flex-end;
 }
 
 #travelNav {
@@ -24,9 +29,16 @@ body {
     margin-left: 20px;
     margin-right: 20px;
 }
+.navbar-brand {
+    font-size: 2rem;
+}
+#travelNav{
+    font-family: 'Quicksand', sans-serif;
+}
 
 #ulnav{
-    left:0
+    left:0;
+    flex-direction: row-reverse;
 }
 #listLandmarkContainer, #listRestaurantContainer {
     list-style-type: none;
@@ -45,26 +57,59 @@ body {
     padding-top: 15px;
     margin-left: 15px;
     margin-right: 15px;
+    font-family: 'Quicksand', sans-serif;
 }
-/* Paragraphs */
+/* CENTER CONTENT */
+.oneBlog {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+/* TITLE */
+.headingTitle {
+    font-size: 5rem;
+    margin-bottom: 30px
+}
+/* PARAGRAPHS */
 #paraDiv {
     margin-left: 13%;
     margin-right: 12%;
 }
+p {
+    margin-top: 5rem;
+    margin-bottom: 3rem;
+    font-size: 1.5rem;
+}
 
+.favoriteHeading, .leastFavoriteHeading, h3.landmarkHeading, h3.restaurantHeading, span.ratingHeading {
+    font-size: 2rem;
+    font-weight: bold;
+    border-bottom: 3px solid orange;
+    padding-bottom: 3px;
+    width: max-content
+}
 /* Landmark and Restaurant */
 .landRestDiv {
     display:flex;
+    width: 60%;
+    text-align: center;
+    font-size: 1.5rem;
 }
 #landmarkDiv, #restaurantDiv {
     width: 100%;
-    margin-left: 13%;
+}
+h3.landmarkHeading, h3.restaurantHeading {
+    margin: 0 auto;
 }
 
 /* RATING */
 .ratingDiv {
-    text-align: center;
+    width: 74%;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
 }
+
+
 /* IMAGE COVER */
 .image-cover {
     width: 75%;
@@ -72,9 +117,10 @@ body {
     margin: 0 auto;
 }
 @media screen and (max-width: 768px){
-    #collapsibleNavbar{
-        justify-content: inherit;
-    }  
+
+    #ulnav {
+        flex-direction: column;
+    }
      #travelNav{
         height:auto
     } 
@@ -85,10 +131,9 @@ body {
     .edit-createButton {
         margin-left: 0px
     }
-
-}
-
-@media screen and (max-width: 500px){
+    #navbardrop {
+        margin-right: 15px;
+    }
     .landRestDiv{
         display: flex;
         flex-direction: column;
@@ -98,6 +143,20 @@ body {
         flex-direction: column;
         align-items: center;
     }
+    
+
+}
+
+@media screen and (max-width: 500px){
+    /* .landRestDiv{
+        display: flex;
+        flex-direction: column;
+    }
+    #landmarkDiv, #restaurantDiv {
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+    } */
     .image-cover {
         width: 100%;
         display: block;

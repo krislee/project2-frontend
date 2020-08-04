@@ -1,5 +1,5 @@
-const deployedURL = "https://ga-project02.herokuapp.com"
-// const deployedURL = null
+// const deployedURL = "https://ga-project02.herokuapp.com"
+const deployedURL = null
 const URL = deployedURL ? deployedURL : "http://localhost:3000"
 
 let editContent = null
@@ -150,9 +150,9 @@ const showOneBlog = async (someId) => {
     .attr('id', 'paraDiv')
     .html(
         `<p>
-        <span class="favoriteHeading">Favorite Memory: </span>
-        ${data.content[0].favoriteMemory} </br> </br> <span class="leastFavoriteHeading"> Least Favorite Memory: </span>
-        ${data.content[0].leastFavoriteMemory}
+        <span class="favoriteHeading">Favorite Memory:</span>
+         ${data.content[0].favoriteMemory} </br> </br> <span class="leastFavoriteHeading"> Least Favorite Memory:</span>
+         ${data.content[0].leastFavoriteMemory}
         </p>
         `
     )
@@ -185,7 +185,7 @@ const showOneBlog = async (someId) => {
     // RATINGS
     const $ratingDiv = $('<div>')
     .attr('class', 'ratingDiv')
-    .html(`<span class="ratingHeading"> Rating: </span> ${data.content[0].rating}`)
+    .html(`<span class="ratingHeading"> Rating:</span> ${data.content[0].rating}`)
     
     $landRestDiv.append($landmarkDiv).append($restaurantDiv)
     $oneBlog.append($title).append($imageCover).append($contentParaDiv).append($landRestDiv).append($ratingDiv)
