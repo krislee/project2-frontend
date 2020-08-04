@@ -1,96 +1,55 @@
 @import url('https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@300;500&display=swap');
 
-
+body {
+    background-color: black;
+    color:white
+}
 
 /* Navigation bar */
-
-.nav {
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    background-color: #121318;
-    color: white;
+#scrollablePlaceDiv{
     height: 100px;
-    align-items: center;
-    font-family: 'Zilla Slab', serif;
-    border-bottom: 3px solid white;
-    font-size: 2em;
+    overflow-y: auto
 }
 
-.right-burger{
-    display: none;
+#travelNav {
+    height: 100px;
+}  
+
+.btn {
+    margin-left: 40px;
 }
 
-.div-burger {
-    width:0px;
-}
-.whitelinks:link{
-    text-decoration: none;
-    color: white;
-}
-.whitelinks:visited{
-    text-decoration: none;
-    color: white;
-}
-.whitelinks:hover {
-    color: red;
-    text-decoration: underline;
-    text-decoration-color: white;
-}
-.whitelinks:active {
-    color: red;
+.edit-createButton {
+    display:flex;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
-.blacklinks:link{
-    text-decoration: none;
-    color: white;
+#ulnav{
+    left:0
 }
-.blacklinks:visited{
-    text-decoration: none;
-    color: white;
-}
-.blacklinks:hover {
-    color: red;
-    text-decoration: underline;
-    text-decoration-color: white;
-}
-.blacklinks:active {
-    color: red;
-}
-
-/* REMOVE BULLET POINTS AND REMOVE PADDING TO ALIGN TEXT LEFT */
-ul {
+#listLandmarkContainer, #listRestaurantContainer {
     list-style-type: none;
-    padding: 0
+    padding: 0;
 }
 
-
-#gridBlogs {
-    display: grid;
-    grid-template-rows: 1fr;
-    grid-template-columns: 2fr 0.25fr 0.75fr;
-    
-}
-/* SIDE BAR */
-#listAllBlogs {
-    grid-row: 1/2;
-    grid-column: 3/4;
-    padding-top: 15px;
-    display: flex;
-    flex-direction: column;
+#flexBlog {
+    display:flex;
+    justify-content: center;
 }
 /* CONTENT */
 #listOneBlog {
-    grid-row: 1/2;
-    grid-column: 1/2;
+    /* grid-row: 1/2;
+    grid-column: 1/2; */
+    width: 100%;
     padding-top: 15px;
     margin-left: 15px;
-    align-self: center;
+    margin-right: 15px;
 }
-/* SIDEBAR */
-.placeDiv {
-    padding-bottom: 5px;
-    border: 1px solid black;
+/* Paragraphs */
+#paraDiv {
+    margin-left: 13%;
+    margin-right: 12%;
 }
 
 /* Landmark and Restaurant */
@@ -98,54 +57,49 @@ ul {
     display:flex;
 }
 #landmarkDiv, #restaurantDiv {
-    width: 100%
+    width: 100%;
+    margin-left: 13%;
 }
 
+/* RATING */
+.ratingDiv {
+    text-align: center;
+}
 /* IMAGE COVER */
 .image-cover {
-    width: 100%;
+    width: 75%;
     display: block;
+    margin: 0 auto;
 }
-@media screen and (max-width:599px) {
-    .burger::before {
-        content:'\2630';
-        font-size: 50px;
-        color: white;
-        float: right;
+@media screen and (max-width: 768px){
+    #collapsibleNavbar{
+        justify-content: inherit;
+    }  
+     #travelNav{
+        height:auto
+    } 
+    .btn{
+        margin-left: 0px;
+        margin-right: 15px;
     }
-    .xcross::before {
-        content:'\2715';
-        font-size: 50px;
-        color: white;
-        float: right;
+    .edit-createButton {
+        margin-left: 0px
     }
-    .right-nav {
-        margin-right: 0;
+
+}
+
+@media screen and (max-width: 500px){
+    .landRestDiv{
+        display: flex;
+        flex-direction: column;
     }
-    /* To hide the original top navigation at width less than 599px */
-    .hidden{
-        display: none;
+    #landmarkDiv, #restaurantDiv {
+        display:flex;
+        flex-direction: column;
+        align-items: center;
     }
-    /* The bottom navigation will be remain hidden until .show class is added to .right-burger through jQuery */
-    .right-burger {
-        display:none;
-    }
-    .show {
-        display: block;
+    .image-cover {
         width: 100%;
-        text-align: center;
-        font-family: 'Zilla Slab', serif;
-        font-size: 1.25em;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        background-color: black;
-    }
-    .bottom-nav-name, .bottom-nav-allPosts {
-         padding-bottom: 15px;
-    }
-
-
-    #listOneBlog {
-        margin-left: 5px;
+        display: block;
     }
 }

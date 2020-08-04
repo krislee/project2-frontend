@@ -15,7 +15,7 @@ const getAll = async () => {
     console.log(data)
     data.forEach((blog) => {
         const $placediv = $('<a>')
-        .attr({'id': blog._id, 'class': 'placeDiv', 'class': 'dropdown-item'})
+        .attr({'id': blog._id, 'class': 'dropdown-item'})
         .text(`${blog.destination}`)
         .on('click', () => {
             showOneBlog(event.target.id)
@@ -262,8 +262,14 @@ $('#submit-delete').on('click', async() => {
     })
 })
 
+$(window).resize(()=>{
+    if($(window).width()>768){
+        $('#collapsibleNavbar').removeClass('show')
+        $("button[data-target='#collapsibleNavbar']").addClass('collapsed')
+    }
+})
 
-
+// INVOKE FUNCTION
 getAll()
 
   
