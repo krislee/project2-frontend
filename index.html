@@ -18,24 +18,40 @@
   <script src="./app.js" defer></script>
 </head>
 <body>
-    <nav class="nav">
-        <div class="create-edit-buttons">
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createModal">Create</button>
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editModal">Edit</button>
-        </div>
-        <div class="nav-name hidden"><a class="whitelinks" href="#">Bailey Matt</a></div>
-        <div class="nav-allPosts hidden"><a class="whitelinks" href="#">Travel Posts</a></div>
-        <!-- BURGER: -->
-        <div class="div-burger">
-            <a class ="burger" href="#"></a>
-        </div>
-     </nav>
-     <div class="right-burger">
-        <div class="bottom-nav-name"><a class="blacklinks" href="#">Bailey Matt</a></div>
-        <div class="bottom-nav-allPosts"><a class="blacklinks" href="#">Travel Posts</a></div>
-     </div>
-   
+ <!-- BOOTSTRAP NAV BAR -->
+<nav class="navbar navbar-expand-md bg-dark navbar-dark" id="travelNav">
+    <!-- Brand -->
+    <div class="rightSideNav">
+        <a class="navbar-brand" href="#">Travel Journal</a>
+    </div>
+    <!-- Toggler/collapsibe Button (HAMBURGER MENU) -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createModal">Create</button>
+          </li>
+          <li class="nav-item">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editModal">Edit</button>
+          </li>
+            <!-- Dropdown -->
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+              All Posts
+              </a>
+              <div class="dropdown-menu" id="scrollablePlaceDiv">
+              </div>
+            </li>
+        </ul>
+      </div>
+  </nav>
+
+
+
+ <!-- SHOW ONE BLOG -->
     <div id="gridBlogs">
         <div id="listAllBlogs"></div>
         <div id="listOneBlog"></div>

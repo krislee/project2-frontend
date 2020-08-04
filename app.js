@@ -14,8 +14,8 @@ const getAll = async () => {
     const data = await response.json()
     console.log(data)
     data.forEach((blog) => {
-        const $placediv = $('<div>')
-        .attr({'id': blog._id, 'class': 'placeDiv'})
+        const $placediv = $('<a>')
+        .attr({'id': blog._id, 'class': 'placeDiv', 'class': 'dropdown-item'})
         .text(`${blog.destination}`)
         .on('click', () => {
             showOneBlog(event.target.id)
@@ -32,7 +32,7 @@ const getAll = async () => {
         //    console.log(event.target.id)
         //    $('#submit-edit').attr('id', `${blog._id}`) //need to assign an id to the the submit button to put the id in the url put request
         // })
-        $('#listAllBlogs').append($placediv)
+        $('#scrollablePlaceDiv').append($placediv)
     })
 }
 
@@ -114,7 +114,7 @@ $('#submit-edit').on('click', async(event) => {
 
     $('#editModal').modal('hide')
 
-    $('#listAllBlogs').empty()
+    $('#scrollablePlaceDiv').empty()
     $('#listOneBlog').empty()
     getAll()
     await showOneBlog(editHeading)
@@ -224,7 +224,7 @@ $('#submit-create').on('click', async(event) =>{
     const data = await response.json()
  
     $('#createModal').modal('hide')
-    $('#listAllBlogs').empty()
+    $('#scrollablePlaceDiv').empty()
     $('#listOneBlog').empty()
     getAll()
     showOneBlog(data._id)
@@ -251,7 +251,7 @@ $('#submit-delete').on('click', async() => {
     const data = await response.json()
 
     $('#editModal').modal('hide')
-    $('#listAllBlogs').empty()
+    $('#scrollablePlaceDiv').empty()
     $('#listOneBlog').empty()
     getAll()
 
