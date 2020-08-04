@@ -15,31 +15,36 @@ body {
 #collapsibleNavbar {
     justify-content: flex-end;
 }
-
-#travelNav {
-    height: 100px;
-}  
-
-.btn {
-    margin-left: 40px;
+#ulnav{
+    left:0;
+    flex-direction: row-reverse;
 }
-
 .edit-createButton {
     display:flex;
     margin-left: 20px;
     margin-right: 20px;
 }
+
+#travelNav {
+    height: 100px;
+    font-family: 'Quicksand', sans-serif;
+    background-color: orange
+}  
+.btn {
+    margin-left: 40px;
+}
+/* TRAVEL JOURNAL FONT SIZE */
 .navbar-brand {
     font-size: 2rem;
 }
-#travelNav{
-    font-family: 'Quicksand', sans-serif;
+/* ALL POSTS FONT SIZE */
+#navbardrop {
+    /* margin-right: 15px; */
+    font-size: 1.25rem;
+    color: white;
 }
 
-#ulnav{
-    left:0;
-    flex-direction: row-reverse;
-}
+
 #listLandmarkContainer, #listRestaurantContainer {
     list-style-type: none;
     padding: 0;
@@ -105,7 +110,7 @@ h3.landmarkHeading, h3.restaurantHeading {
 /* RATING */
 .ratingDiv {
     width: 74%;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
     font-size: 1.5rem;
 }
 
@@ -118,22 +123,34 @@ h3.landmarkHeading, h3.restaurantHeading {
 }
 @media screen and (max-width: 768px){
 
+    .headingTitle {
+        font-size: 4rem;
+    }
+
     #ulnav {
         flex-direction: column;
     }
      #travelNav{
         height:auto
     } 
+    /* TRAVEL JOURNAL FONT SIZE */
+    .navbar-brand {
+        font-size: 1.5rem;
+    }
+    /* ALL POSTS FONT SIZE */
+    #navbardrop {
+        /* margin-right: 15px; */
+        font-size: 1rem;
+    }
     .btn{
         margin-left: 0px;
         margin-right: 15px;
     }
+    
     .edit-createButton {
         margin-left: 0px
     }
-    #navbardrop {
-        margin-right: 15px;
-    }
+   
     .landRestDiv{
         display: flex;
         flex-direction: column;
@@ -148,17 +165,35 @@ h3.landmarkHeading, h3.restaurantHeading {
 }
 
 @media screen and (max-width: 500px){
-    /* .landRestDiv{
-        display: flex;
-        flex-direction: column;
-    }
-    #landmarkDiv, #restaurantDiv {
-        display:flex;
-        flex-direction: column;
-        align-items: center;
-    } */
     .image-cover {
         width: 100%;
         display: block;
     }
+    button[data-target="#createModal"], button[data-target="#editModal"] {
+        width: 73px;
+        height: 36px;
+        font-size: 15px;
+    }
+   #submit-delete {
+        background-color: red;
+    }
+
+    .headingTitle {
+        font-size: 2.75rem;
+    }
+
+    p {
+        margin-top: 4rem;
+        margin-bottom: 2rem;
+        font-size: 1rem;
+    }
+    
+    .favoriteHeading, .leastFavoriteHeading, h3.landmarkHeading, h3.restaurantHeading, span.ratingHeading {
+        font-size: 1.5rem;
+    }
+    /* Landmark, Restaurant, Rating Paragraphs */
+    .landRestDiv,.ratingDiv {
+        font-size: 1rem;
+    }
+    
 }
