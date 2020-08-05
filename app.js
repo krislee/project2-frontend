@@ -97,15 +97,16 @@ $('#submit-edit').on('click', async(event) => {
      landmark: [$('#landmark-edit1').val(), $('#landmark-edit2').val(), $('#landmark-edit3').val()],
      restaurant: [$('#restaurant-edit1').val(), $('#restaurant-edit2').val(), $('#restaurant-edit3').val()]
  }
-
+ console.log(updatedContent)
  console.log(editHeading)
 console.log(editContent)
+
     await fetch(`${URL}/travel/heading/${editHeading}`, {
         method: "put",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(updatedHeading)
     })
-
+console.log(updatedContent)
     await fetch(`${URL}/travel/content/${editContent}`, {
         method: "put",
         headers: {"Content-Type": "application/json"},
