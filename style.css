@@ -111,9 +111,12 @@ h3.landmarkHeading, h3.restaurantHeading {
 .ratingDiv {
     width: 74%;
     margin-bottom: 2rem;
-    font-size: 1.5rem;
+    font-size: 2.5rem;
+    text-align: center;
 }
-
+span.ratingHeading {
+    font-size: 3rem
+}
 
 /* IMAGE COVER */
 .image-cover {
@@ -188,12 +191,19 @@ h3.landmarkHeading, h3.restaurantHeading {
         font-size: 1rem;
     }
     
-    .favoriteHeading, .leastFavoriteHeading, h3.landmarkHeading, h3.restaurantHeading, span.ratingHeading {
+    .favoriteHeading, .leastFavoriteHeading, h3.landmarkHeading, h3.restaurantHeading{
         font-size: 1.5rem;
     }
     /* Landmark, Restaurant, Rating Paragraphs */
-    .landRestDiv,.ratingDiv {
+    .landRestDiv {
         font-size: 1rem;
     }
+    span.ratingHeading {
+        font-size: 2rem
+    }
+    .ratingDiv {
+        font-size: 1.5rem;
+    }
+
     
 }

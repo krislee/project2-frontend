@@ -1,5 +1,5 @@
-// const deployedURL = "https://ga-project02.herokuapp.com"
-const deployedURL = null
+const deployedURL = "https://ga-project02.herokuapp.com"
+// const deployedURL = null
 const URL = deployedURL ? deployedURL : "http://localhost:3000"
 
 let editContent = null
@@ -114,12 +114,15 @@ $('#submit-edit').on('click', async(event) => {
 
     $('#editModal').modal('hide')
 
+    // EMPTY OUT THE DROP DOWN DIV AND DIV CONTAINING THE BLOG POST TO AVOID MULTIPLE BLOG TITLES AND BLOG POSTS
     $('#scrollablePlaceDiv').empty()
     $('#listOneBlog').empty()
+
     getAll()
     await showOneBlog(editHeading)
     editHeading = null //don't know if I need this code...
 
+    // EMPTY OUT THE INPUT FIELDS ONCE WE UPDATE
     $('#name-edit').val('')
     $('#destination-edit').val('')
     $('#image-edit').val('')
@@ -140,6 +143,7 @@ const showOneBlog = async (someId) => {
     const response = await fetch(`${URL}/travel/${someId}`)
     const data = await response.json()
 
+    // EMPTY OUT DIV FIRST TO NOT GET MULTIPLE BLOG POSTS APPEARING AT THE SAME TIME WHEN BLOG TITLE IS CLICKED
     $('#listOneBlog').empty()
 
     const $oneBlog = $('<div>').attr({'id': data._id, 'class': 'oneBlog'})
@@ -226,9 +230,12 @@ $('#submit-create').on('click', async(event) =>{
     $('#createModal').modal('hide')
     $('#scrollablePlaceDiv').empty()
     $('#listOneBlog').empty()
+    // UPDATE THE DROPDOWN WITH THE ADDED TITLE
     getAll()
+    // DISPLAY THE CREATED POST BY GETTING ITS OBJECTID FROM THE REPONSE SENT FROM SERVER
     showOneBlog(data._id)
-
+    
+    // CLEAR THE CREATE MODAL INPUT FIELDS
     $('#name-create').val('')
     $('#destination-create').val('')
     $('#image-create').val('')
@@ -253,8 +260,10 @@ $('#submit-delete').on('click', async() => {
     $('#editModal').modal('hide')
     $('#scrollablePlaceDiv').empty()
     $('#listOneBlog').empty()
-    getAll()
 
+// UPDATE DROPDOWN LIST
+    getAll()
+// DISPLAY THE LAST CREATED POST
     data.forEach((eachData,index,data) => {
         if(index === data.length-1){
             showOneBlog(eachData._id)
@@ -272,33 +281,4 @@ $(window).resize(()=>{
 // INVOKE FUNCTION
 getAll()
 
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-////// NAVIGATION BAR //////
-let $burger = $('.burger')
-$burger.on('click', function(e) {
-    let $right = $('.right-burger');
-    $right.toggleClass('show');
-    $('.burger').toggleClass('xcross')
-})
-
-$(window).resize (function(e) {
-   if($(window).width()>600){
-       $('.right-burger').removeClass('show')
-       $('.burger').removeClass('xcross')
-   }
-})
 
