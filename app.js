@@ -1,5 +1,5 @@
-const deployedURL = "https://ga-project02.herokuapp.com"
-// const deployedURL = null
+// const deployedURL = "https://ga-project02.herokuapp.com"
+const deployedURL = null
 const URL = deployedURL ? deployedURL : "http://localhost:3000"
 
 let editContent = null
@@ -23,7 +23,7 @@ const getAll = async () => {
         .on('click', (event) => {
             editContent = blog.content[0]._id
             editHeading = blog._id
-            console.log(editHeading)
+            // console.log(editHeading)
             deleteHeading = blog._id
         })
         .on('click', editBlog)
@@ -98,8 +98,8 @@ $('#submit-edit').on('click', async(event) => {
      restaurant: [$('#restaurant-edit1').val(), $('#restaurant-edit2').val(), $('#restaurant-edit3').val()]
  }
 
-//  console.log(editHeading)
-
+ console.log(editHeading)
+console.log(editContent)
     await fetch(`${URL}/travel/heading/${editHeading}`, {
         method: "put",
         headers: {"Content-Type": "application/json"},
