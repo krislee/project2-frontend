@@ -1,5 +1,5 @@
-// const deployedURL = "https://ga-project02.herokuapp.com"
-const deployedURL = null
+const deployedURL = "https://ga-project02.herokuapp.com"
+// const deployedURL = null
 const URL = deployedURL ? deployedURL : "http://localhost:3000"
 
 let editContent = null
@@ -14,9 +14,10 @@ const getAll = async () => {
     const data = await response.json()
     console.log(data)
     data.forEach((blog) => {
+        const date = new Date(blog.createdOn).toDateString()
         const $placediv = $('<a>')
         .attr({'id': blog._id, 'class': 'dropdown-item'})
-        .text(`${blog.destination}`)
+        .append(`${blog.destination} <br> Posted on: ${date}`)
         .on('click', () => {
             showOneBlog(event.target.id)
         })
@@ -162,7 +163,6 @@ const showOneBlog = async (someId) => {
         `
     )
     
-    // $landRestDiv is the flex div to make $landmarkDiv and $restaurantDiv in rows
     const $landRestDiv = $('<div>').attr('class', 'landRestDiv')
 
     // LANDMARK DIV, HEADING, UL, LI
@@ -196,7 +196,6 @@ const showOneBlog = async (someId) => {
     $oneBlog.append($title).append($imageCover).append($contentParaDiv).append($landRestDiv).append($ratingDiv)
     $('#listOneBlog').append($oneBlog)
     // console.log(data)
-
 }   
 
 ////// CREATE NEW POSTS /////
@@ -204,7 +203,11 @@ $('#submit-create').on('click', async(event) =>{
     // $('.form-group').each((input) => {
     //     input.val('')
     // })
-
+    const attribute = $(this).attr('disabled')
+    if(attribute && $('#destination-create').val() !== 0)
+    if ($('#destination-create').val() === '') {
+        $('#submit-create').attr('disabled')
+    }
     const newHeading = {
         name: $('#name-create').val(),
         createdOn: new Date(),
@@ -272,6 +275,7 @@ $('#submit-delete').on('click', async() => {
     })
 })
 
+///// CLOSE THE HAMBURGER MENU ICON IF USER DOES NOT CLOSE IT AND EXPAND PAGE /////
 $(window).resize(()=>{
     if($(window).width()>768){
         $('#collapsibleNavbar').removeClass('show')
