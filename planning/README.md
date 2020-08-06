@@ -92,11 +92,13 @@ jQuery was used to create DOMs for the website.
 ## Code Snippet
 To edit the blog post, required 2 separate functions. One was to populate the input fields of the edit modal, and the other function was needed to actually send a PUT request to the server to update the blog post. To populate the input field, the id of the title that was clicked in the drop down was used in the GET one request. To update the blog post, the ids needed to come from the global variables being set to the heading and content ObjectId values during the getAll function (the heading ObjectId couldn't come from the id of the clicked title, see below in Issues and Resolutions).
 
-PASTE SNIPPET
+
+
 
 ## Issues and Resolutions
 
 **ERROR**: The submit button id was not reflecting the actual ObjectId of the heading document, even though the submit button id was assigned to the event target id of the title when clicking upon the title. The event target id is the same ObjectId of the heading document.
+
 **RESOLUTION**: Used a global variable and updated it explicity to the ObjectId of the heading document inside the click title function during the looping of the fetch response data.
 
 ## Previous Project Worksheet

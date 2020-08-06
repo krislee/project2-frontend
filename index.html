@@ -75,7 +75,7 @@
           <div class="modal-body"> 
 
           <!-- res.body[0] -->
-              <form>
+              <form id="editForm">
                   <div class="form-group">
                       <input id="name-edit" type="text" class="form-control" placeholder='Full Name'> 
                   </div>
@@ -142,50 +142,50 @@
             <div class="modal-body"> 
   
             <!-- res.body[0] -->
-                <form id="validateForm">
+                <form id="createForm">
                     <div class="form-group">
-                        <input id="name-create" type="text" class="form-control" placeholder='Full Name'> 
+                        <input id="name-create" type="text" class="form-control create" placeholder='Full Name'> 
                     </div>
                     <div class="form-group">
-                        <input id="destination-create" type="text" class="form-control" placeholder='Destination'>
+                        <input id="destination-create" type="text" class="form-control create" placeholder='Destination'>
                     </div>
                     <div class="form-group">
-                        <input id="image-create" type="text" class="form-control" placeholder='Image URL'> 
+                        <input id="image-create" type="text" class="form-control create" placeholder='Image URL'> 
                     </div>
           <!-- res.body[1] -->
                     <div class="form-group">
-                        <textarea class="form-control" id="createFavoriteMemory" rows="3" placeholder="Favorite Memory"></textarea>
+                        <textarea class="form-control create" id="createFavoriteMemory" rows="3" placeholder="Favorite Memory"></textarea>
                     </div>
                     <div class="form-group">
-                        <textarea class="form-control" id="createLeastFavoriteMemory" rows="3" placeholder="Least Favorite Memory"></textarea>
+                        <textarea class="form-control create" id="createLeastFavoriteMemory" rows="3" placeholder="Least Favorite Memory"></textarea>
                     </div>
                     <div class="form-group row"> 
                         <div class="col">
-                            <input type="text" class="form-control" id="restaurant-create1" placeholder="Restaurant">
+                            <input type="text" class="form-control create" id="restaurant-create1" placeholder="Restaurant">
                         </div>
                         <div class="col">
-                            <input type="text" class="form-control" id="restaurant-create2" placeholder="Restaurant">
+                            <input type="text" class="form-control create" id="restaurant-create2" placeholder="Restaurant">
                         </div>
                         <div class="col">
-                            <input type="text" class="form-control" id="restaurant-create3" placeholder="Restaurant">
+                            <input type="text" class="form-control create" id="restaurant-create3" placeholder="Restaurant">
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="col">
                             <!-- <label for="landmark-create1">Landmark</label> -->
-                            <input type="text" class="form-control" id="landmark-create1"  placeholder="Landmark">
+                            <input type="text" class="form-control create" id="landmark-create1"  placeholder="Landmark">
                         </div>
                         <div class="col">
                             <!-- <label for="landmark-create2">Landmark</label> -->
-                            <input type="text" class="form-control" id="landmark-create2" placeholder="Landmark">
+                            <input type="text" class="form-control create" id="landmark-create2" placeholder="Landmark">
                         </div>
                         <div class="col">
                             <!-- <label for="landmark-create3">Landmark</label> -->
-                            <input type="text" class="form-control" id="landmark-create3" placeholder="Landmark">
+                            <input type="text" class="form-control create" id="landmark-create3" placeholder="Landmark">
                         </div>
                     </div>
                     <div class="form-group">
-                        <input id="createRating" type="number", min="0", max="10", value="0", class="form-control" placeholder="rating">
+                        <input id="createRating" type="number", min="0", max="10", value="0", class="form-control create" placeholder="rating">
                     </div>
                     <button type="button" class="btn btn-success" id="submit-create">Create</button>
                 </form>

@@ -125,18 +125,7 @@ console.log(updatedContent)
     editHeading = null //don't know if I need this code...
 
     // EMPTY OUT THE INPUT FIELDS ONCE WE UPDATE
-    $('#name-edit').val('')
-    $('#destination-edit').val('')
-    $('#image-edit').val('')
-    $('#favoriteMemory').val('')
-    $('#leastFavoriteMemory').val('')
-    $('#landmark-edit1').val('')
-    $('#landmark-edit2').val('')
-    $('#landmark-edit3').val('')
-    $('#restaurant-edit1').val('')
-    $('#restaurant-edit2').val('')
-    $('#restaurant-edit3').val('')
-    $('#rating').val('')
+    $('#editForm').trigger('reset')
 })
 
 
@@ -240,18 +229,7 @@ $('#submit-create').on('click', async(event) =>{
     showOneBlog(data._id)
     
     // CLEAR THE CREATE MODAL INPUT FIELDS
-    $('#name-create').val('')
-    $('#destination-create').val('')
-    $('#image-create').val('')
-    $('#createFavoriteMemory').val('')
-    $('#createLeastFavoriteMemory').val('')
-    $('#restaurant-create1').val('')
-    $('#restaurant-create2').val('')
-    $('#restaurant-create3').val('')
-    $('#landmark-create1').val('')
-    $('#landmark-create2').val('')
-    $('#landmark-create3').val('')
-    $('#createRating').val('')
+    $('#createForm').trigger('reset')
 })
 
 ///// DELETE POST /////
