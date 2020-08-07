@@ -1,5 +1,5 @@
-// const deployedURL = "https://ga-project02.herokuapp.com"
-const deployedURL = null
+const deployedURL = "https://ga-project02.herokuapp.com"
+// const deployedURL = null
 const URL = deployedURL ? deployedURL : "http://localhost:3000"
 
 let editContent = null
